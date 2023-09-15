@@ -1,0 +1,29 @@
+<h2>LISTADOS DE LA SEDES :</h2>
+<table class="table table-striped">
+  <thead class="table-dark">
+    <tr>
+      <th>NOMBRE DE LA SEDE</th>
+      <th>DIRECTOR A CARGO</th>
+      <th>NUMERO  DE TELEFONO CELULAR, FIJO O FAX </th>
+      <th>DIRECCIÓN DE LA SEDE</th>
+      <th>DEPARTAMENTO DONDE ESTA UBICADA LA SEDE </th>
+      <th></th>
+      <th>ACCIONES :</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor= "let empleado of empleados">
+      <td>{{empleado.name}}</td>
+      <td>{{empleado.director}}</td>
+      <td>{{empleado.telephone}}</td>
+      <td>{{empleado.address}}</td>
+      <td>{{empleado.department}}</td>
+      <td>
+        <button (click)= "actualizarEmpleado(empleado.id)" class="btn btn-info">Editar</button>       </td>
+        <td> <button (click)= "eliminarEmpleado(empleado.id)" class="btn btn-danger" style="margin-left : 10px;">Eliminar</button>       </td>
+        <td>  <button (click)= "verDetallesDelEmpleado(empleado.id)" class="btn btn-primary" style="margin-left : 10px;">Detalles</button>
+      </td>
+    </tr>
+  </tbody>
+</table>

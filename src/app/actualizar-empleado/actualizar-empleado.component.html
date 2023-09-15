@@ -1,0 +1,148 @@
+<div class="col-md-6 offset-md-3">
+  <h3 class="text-center">Edición de empleado</h3>
+  <form (ngSubmit)= "onSubmit()" #empleadoForm = "ngForm">
+<!-- // primer dato div -->
+<div class="form-group">
+  <label>NOMBRE: </label>
+  <input type = "text"
+  class="form-control"
+  id = "name"
+  [(ngModel)] = "empleado.name"
+  name = "name"
+  required
+  minlength="3"
+  maxlength="80"
+  placeholder="Digite el nombre de la sede"
+  #name = "ngModel"
+  >
+  <div class="alert alert-danger" *ngIf= "name.invalid && (name.dirty || name.touched)">
+    <div *ngIf = "name.errors.required">
+      Digite el nombre de la sede por favor
+    </div>
+    <div *ngIf = "name.errors.minlength">
+      El nombre tiene que contener como minimo 3 caracteres
+    </div>
+    <div *ngIf = "name.errors.maxlength">
+      El nombre tiene que tener como maximo 80 caracteres
+    </div>
+  </div>
+</div>
+
+<!-- // segundo dato div -->
+
+<div class="form-group">
+  <label>DIRECTOR A CARGO : </label>
+  <input type = "text"
+  class="form-control"
+  id = "director"
+  [(ngModel)] = "empleado.director"
+  name = "director"
+  required
+  minlength="3"
+  maxlength="80"
+  placeholder="Digite el director o directora"
+  #director = "ngModel"
+  >
+  <div class="alert alert-danger" *ngIf= "director.invalid && (director.dirty || director.touched)">
+    <div *ngIf = "director.errors.required">
+      Digite el nombre del director por favor
+    </div>
+    <div *ngIf = "director.errors.minlength">
+      El nombre del director tiene que contener como minimo 3 caracteres
+    </div>
+    <div *ngIf = "director.errors.maxlength">
+      El nombre del director tiene que tener como maximo 80 caracteres
+    </div>
+  </div>
+</div>
+
+<!-- // tercero dato div -->
+
+<div class="form-group">
+  <label>NUMERO  DE TELEFONO CELULAR, FIJO O FAX : </label>
+  <input type = "number"
+  class="form-control"
+  id = "telephone"
+  [(ngModel)] = "empleado.telephone"
+  name = "telephone"
+  pattern ="^[0-9]+$"
+  required
+  minlength="7"
+  maxlength="11"
+  placeholder="Digite su telefono celular, fijo o fax "
+  #telephone = "ngModel"
+  >
+  <div class="alert alert-danger" *ngIf= "telephone.invalid && (telephone.dirty || telephone.touched)">
+    <div *ngIf = "telephone.errors.pattern">
+      Por favor digite el telefono en números
+    </div>
+    <div *ngIf = "telephone.errors.required">
+      Digite su telefono por favor
+    </div>
+    <div *ngIf = "telephone.errors.minlength">
+      El telefono tiene que contener como minimo 7 caracteres
+    </div>
+    <div *ngIf = "telephone.errors.maxlength">
+      El telefono tiene que tener como maximo 9 caracteres sin prefijos
+    </div>
+
+  </div>
+</div>
+
+<!-- // cuarto dato div -->
+
+<div class="form-group">
+  <label>DIRECCIÓN DE LA SEDE : </label>
+  <input type = "text"
+  class="form-control"
+  id = "address"
+  [(ngModel)] = "empleado.address"
+  name = "address"
+  required
+  minlength="3"
+  maxlength="80"
+  placeholder="Digite la dirección "
+  #address = "ngModel"
+  >
+  <div class="alert alert-danger" *ngIf= "address.invalid && (address.dirty || address.touched)">
+    <div *ngIf = "address.errors.required">
+      Digite su dirección de la sede por favor
+    </div>
+    <div *ngIf = "address.errors.minlength">
+      La dirección de la sede tiene que contener como minimo 4 caracteres
+    </div>
+    <div *ngIf = "address.errors.maxlength">
+      La dirección de la sede tiene que tener como maximo 80 caracteres
+    </div>
+  </div>
+</div>
+
+<div class="form-group">
+  <label>DEPARTAMENTO DONDE ESTA UBICADA LA SEDE : </label>
+  <input type = "text"
+  class="form-control"
+  id = "department"
+  [(ngModel)] = "empleado.department"
+  name = "department"
+  required
+  minlength="4"
+  maxlength="80"
+  placeholder="Digite su apellido "
+  #department = "ngModel"
+  >
+  <div class="alert alert-danger" *ngIf= "department.invalid && (department.dirty || department.touched)">
+    <div *ngIf = "department.errors.required">
+      Digite el departameto por favor
+    </div>
+    <div *ngIf = "department.errors.minlength">
+      El departameto tiene que contener como minimo 3 caracteres
+    </div>
+    <div *ngIf = "department.errors.maxlength">
+      El departameto tiene que tener como maximo 80 caracteres
+    </div>
+  </div>
+</div>
+
+    <button class="btn btn-success" [disabled]= "!empleadoForm.form.valid">Guardar</button>
+  </form>
+</div>
